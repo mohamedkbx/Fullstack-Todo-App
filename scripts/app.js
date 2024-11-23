@@ -186,6 +186,8 @@ function getTodo() {
     newTodo.classList.add("todo__item");
     todoDiv.appendChild(newTodo);
 
+    const controls = document.createElement("div");
+    controls.classList.add("todo__controls");
     // Check mark button
     const completedButton = document.createElement("button");
     completedButton.innerHTML = `<i class ='fas fa-check'></i>`;
