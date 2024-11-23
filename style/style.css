@@ -113,10 +113,39 @@ form {
   background: rgba(100, 107, 100, 1);
   background: linear-gradient(45deg, rgba(100, 107, 100, 1), rgba(217, 31, 33, 1));
 }
-
+.edit__button {
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+  color: #fcfcfc;
+  background: linear-gradient(45deg, rgba(100, 107, 100, 1), #010101);
+  cursor: pointer;
+}
+.save__button {
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+  color: #fcfcfc;
+  background: linear-gradient(45deg, rgba(100, 107, 100, 1), #010101);
+  cursor: pointer;
+}
 .fa-trash,
+.fa-save,
+.fa-edit,
 .fa-check {
   pointer-events: none;
+}
+
+.edit-input {
+  font-family: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-right: 3px solid #01010175;
+  padding-right: 5px;
 }
 
 .completed {
