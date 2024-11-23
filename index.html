@@ -20,29 +20,30 @@
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-    <header class="header"><h1>قائمة المهام</h1></header>
+    <div class="container">
+      <header class="header"><h1>قائمة المهام</h1></header>
 
-    <form>
-      <div class="select">
-        <select name="todos" class="filter-todo">
-          <option value="all">جميع المهام</option>
-          <option value="completed">المكتملة</option>
-          <option value="uncompleted">الغير مكتملة</option>
-        </select>
+      <form>
+        <div class="select">
+          <select name="todos" class="filter-todo">
+            <option value="all">جميع المهام</option>
+            <option value="completed">المكتملة</option>
+            <option value="uncompleted">الغير مكتملة</option>
+          </select>
+        </div>
+        <input type="text" id="todo" class="todo__input" />
+        <button class="todo__button" type="submit">
+          <i class="fas fa-plus-square"></i>
+          اضافة
+        </button>
+      </form>
+
+      <div class="notification" id="notification">تم إضافة المهمة بنجاح!</div>
+
+      <div class="todo__container">
+        <ul class="todo-list"></ul>
       </div>
-      <input type="text" id="todo" class="todo__input" />
-      <button class="todo__button" type="submit">
-        <i class="fas fa-plus-square"></i>
-        اضافة
-      </button>
-    </form>
-
-    <div class="notification" id="notification">تم إضافة المهمة بنجاح!</div>
-
-    <div class="todo__container">
-      <ul class="todo-list"></ul>
     </div>
-
     <script src="./scripts/app.js"></script>
   </body>
 </html>
