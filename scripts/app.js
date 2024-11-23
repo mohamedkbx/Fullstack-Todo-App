@@ -3,6 +3,8 @@ const addButton = document.querySelector(".todo__button");
 const inputElement = document.querySelector(".todo__input");
 const todoList = document.querySelector(".todo-list");
 const filterOptions = document.querySelector(".filter-todo");
+// Select the notification div
+const notification = document.getElementById("notification");
 
 // Event Listeners
 document.addEventListener("DOMContentLoaded", getTodo);
@@ -11,10 +13,6 @@ todoList.addEventListener("click", handleTodoActions); // Changed to handle all 
 filterOptions.addEventListener("click", filterTodo);
 
 // Functions
-
-// Add a new Todo item
-// Select the notification div
-const notification = document.getElementById("notification");
 
 // Add a new Todo item
 function addTodo(event) {
@@ -104,7 +102,7 @@ function handleTodoActions(e) {
 
     // Replace todo text with input field
     todo.replaceChild(inputField, todoText);
-
+    inputField.focus();
     // Change the edit button to save button
     item.innerHTML = `<i class='fas fa-save'></i>`;
     item.classList.remove("edit__button");
@@ -126,7 +124,6 @@ function saveUpdatedTodo(todo, newText) {
 
   const inputField = todo.querySelector(".edit-input");
   todo.replaceChild(newTodo, inputField);
-
   // Update the todo in localStorage
   updateLocalTodo(todo, newText);
 }
@@ -134,12 +131,12 @@ function saveUpdatedTodo(todo, newText) {
 // Update localStorage with the updated todo
 function updateLocalTodo(todo, newText) {
   let todos = JSON.parse(localStorage.getItem("todos")) || [];
-  const oldText = todo.querySelector(".edit-input").getAttribute("value");
+  const oldText = todo.querySelector(".todo__item").innerText;
 
   // Find the index of the old todo and replace it with the new text
-  const todoIndex = todos.indexOf(oldText);
+  const todoIndex = todos.findIndex((todoText) => todoText === oldText);
   if (todoIndex > -1) {
-    todos[todoIndex] = newText;
+    todos[todoIndex] = newText; // Update with the new text
   }
 
   // Save the updated todos back to localStorage
