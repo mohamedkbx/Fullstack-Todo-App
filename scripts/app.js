@@ -102,14 +102,13 @@ function handleTodoActions(e) {
 
 // Save updated todo
 function saveUpdatedTodo(todo, newText) {
-  const todoText = todo.querySelector(".edit-input");
-  todoText.innerText = newText;
-
   // Replace input with the updated text
   const newTodo = document.createElement("li");
   newTodo.innerText = newText;
   newTodo.classList.add("todo__item");
-  todo.replaceChild(newTodo, todoText);
+
+  const inputField = todo.querySelector(".edit-input");
+  todo.replaceChild(newTodo, inputField);
 
   // Update the todo in localStorage
   updateLocalTodo(todo, newText);
@@ -117,15 +116,16 @@ function saveUpdatedTodo(todo, newText) {
 
 // Update localStorage with the updated todo
 function updateLocalTodo(todo, newText) {
-  let todos = JSON.parse(localStorage.getItem("todos"));
-  const oldText = todo.querySelector(".todo__item").innerText;
+  let todos = JSON.parse(localStorage.getItem("todos")) || [];
+  const oldText = todo.querySelector(".edit-input").getAttribute("value");
 
-  // Find and update the todo in the array
+  // Find the index of the old todo and replace it with the new text
   const todoIndex = todos.indexOf(oldText);
   if (todoIndex > -1) {
     todos[todoIndex] = newText;
   }
 
+  // Save the updated todos back to localStorage
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
