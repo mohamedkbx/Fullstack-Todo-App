@@ -13,6 +13,10 @@ filterOptions.addEventListener("click", filterTodo);
 // Functions
 
 // Add a new Todo item
+// Select the notification div
+const notification = document.getElementById("notification");
+
+// Add a new Todo item
 function addTodo(event) {
   event.preventDefault();
 
@@ -54,6 +58,19 @@ function addTodo(event) {
   // Clear input
   inputElement.value = "";
   inputElement.focus();
+
+  // Show the notification
+  showNotification();
+
+  // Hide notification after 3 seconds
+  setTimeout(() => {
+    notification.classList.remove("show");
+  }, 3000);
+}
+
+// Show notification
+function showNotification() {
+  notification.classList.add("show");
 }
 
 // Handle Todo actions (edit, complete, delete)
