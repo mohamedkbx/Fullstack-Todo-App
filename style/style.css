@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Sofadi One", system-ui;
+  font-family: 'Sofadi One', system-ui;
   font-weight: 400;
   font-style: normal;
   background: #dfce61;
@@ -116,7 +116,11 @@ form {
   padding: 0.5rem;
   cursor: pointer;
   background: rgba(100, 107, 100, 1);
-  background: linear-gradient(45deg, rgba(100, 107, 100, 1), rgba(217, 31, 33, 1));
+  background: linear-gradient(
+    45deg,
+    rgba(100, 107, 100, 1),
+    rgba(217, 31, 33, 1)
+  );
 }
 .edit__button {
   font-size: 1rem;
@@ -184,7 +188,7 @@ select {
 }
 
 .select::after {
-  content: "\25BC";
+  content: '\25BC';
   position: absolute;
   top: 0.4rem;
   left: 0.5rem;
@@ -204,7 +208,9 @@ select {
   font-size: 1.2rem;
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
   z-index: 1000;
 }
 
